@@ -1,23 +1,18 @@
-const PatientDashboard = () => {
+function PatientDashboard() {
+  const user = JSON.parse(localStorage.getItem("loggedInUser"));
+
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-100 to-indigo-100">
-      <div className="bg-white rounded-2xl shadow-xl p-8 max-w-md w-full text-center">
-        <h1 className="text-3xl font-bold text-indigo-600 mb-4">
+    <div className="min-h-screen flex items-center justify-center bg-gradient-to-r from-green-100 to-blue-100">
+      <div className="bg-white p-8 rounded-xl shadow-lg w-96 text-center">
+        <h2 className="text-2xl font-bold mb-2 text-green-600">
           Patient Dashboard
-        </h1>
-
-        <p className="text-gray-600 mb-6">
-          View your vaccination history securely.
-        </p>
-
-        <div className="bg-indigo-50 p-4 rounded-lg">
-          <p><b>Name:</b> Anushka Maity</p>
-          <p><b>Last Vaccine:</b> Booster</p>
-          <p><b>Dose:</b> 1</p>
-        </div>
+        </h2>
+        <p><b>Name:</b> {user?.name}</p>
+        <p><b>Email:</b> {user?.email}</p>
+        <p><b>Role:</b> {user?.role}</p>
       </div>
     </div>
   );
-};
+}
 
 export default PatientDashboard;
