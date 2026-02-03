@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 const Navbar = () => {
   return (
     <nav className="bg-white shadow-md px-8 py-4 flex justify-between items-center">
-      <h1 className="text-2xl font-bold text-pink-600">
+      <h1 className="text-2xl font-bold text-blue-600">
         VaxiCard
       </h1>
 
