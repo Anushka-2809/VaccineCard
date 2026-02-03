@@ -1,31 +1,24 @@
-import { useNavigate } from "react-router-dom";
-
 const Login = () => {
-  const navigate = useNavigate();
-
   return (
-    <div className="min-h-screen bg-gradient-to-r from-indigo-500 to-purple-600 flex justify-center items-center">
-      <div className="bg-white/90 backdrop-blur-md p-8 rounded-xl shadow-2xl w-96">
-        <h2 className="text-3xl font-bold text-center text-indigo-700 mb-6">
+    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-indigo-100 to-purple-200">
+      <div className="bg-white p-8 rounded-xl shadow-lg w-[350px]">
+        <h2 className="text-2xl font-bold text-center text-indigo-700 mb-6">
           Login
         </h2>
 
         <input
           type="email"
           placeholder="Email"
-          className="w-full p-3 mb-4 border rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
+          className="w-full mb-4 p-2 border rounded-lg focus:ring-2 focus:ring-indigo-500"
         />
 
         <input
           type="password"
           placeholder="Password"
-          className="w-full p-3 mb-6 border rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
+          className="w-full mb-6 p-2 border rounded-lg focus:ring-2 focus:ring-indigo-500"
         />
 
-        <button
-          onClick={() => navigate("/patient")}
-          className="w-full bg-indigo-600 text-white py-3 rounded-lg font-semibold hover:bg-indigo-700 transition"
-        >
+        <button className="w-full bg-indigo-600 text-white py-2 rounded-lg hover:bg-indigo-700">
           Login
         </button>
       </div>
