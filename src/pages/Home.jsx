@@ -2,7 +2,7 @@ const Home = () => {
   return (
     <div className="min-h-screen bg-gray-50 flex flex-col items-center justify-center px-6">
       <h1 className="text-5xl font-bold text-indigo-700 mb-4">
-        VaccineCard
+        VaxiCard
       </h1>
 
       <p className="text-lg text-gray-600 max-w-2xl text-center">
