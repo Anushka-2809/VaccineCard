@@ -27,3 +27,7 @@ const Login = () => {
 };
 
 export default Login;
+import { Link } from "react-router-dom";
+
+<Link to="/register">Register</Link>
+
