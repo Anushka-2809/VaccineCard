@@ -1,14 +1,19 @@
 const PatientDashboard = () => {
   return (
-    <div className="p-8">
-      <h2 className="text-3xl font-bold mb-6">Patient Dashboard</h2>
+    <div className="min-h-screen bg-gradient-to-br from-blue-100 to-purple-100 p-10">
+      <h2 className="text-4xl font-bold text-indigo-700 mb-8">
+        Patient Dashboard
+      </h2>
 
-      <div className="border p-4 rounded shadow max-w-md">
-        <h3 className="font-semibold mb-2">Vaccination Card</h3>
-        <p>Name: Demo User</p>
-        <p>Vaccine: Covishield</p>
-        <p>Dose: 2</p>
-        <p>Date: 12 Jan 2025</p>
+      <div className="bg-white p-6 rounded-xl shadow-lg max-w-lg">
+        <h3 className="text-xl font-semibold mb-4 text-purple-600">
+          Vaccination Details
+        </h3>
+
+        <p><strong>Name:</strong> Demo User</p>
+        <p><strong>Vaccine:</strong> Covishield</p>
+        <p><strong>Dose:</strong> 2</p>
+        <p><strong>Date:</strong> 12 Jan 2025</p>
       </div>
     </div>
   );
