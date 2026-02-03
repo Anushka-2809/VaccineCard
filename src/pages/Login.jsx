@@ -25,12 +25,12 @@ function Login() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-r from-pink-100 to-yellow-100">
+    <div className="min-h-screen flex items-center justify-center bg-gradient-to-r from-blue-100 to-yellow-100">
       <form
         onSubmit={handleLogin}
         className="bg-white p-8 rounded-xl shadow-lg w-96"
       >
-        <h2 className="text-2xl font-bold text-center text-pink-600 mb-5">
+        <h2 className="text-2xl font-bold text-center text-blue-600 mb-5">
           Login
         </h2>
 
