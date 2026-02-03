@@ -1,12 +1,10 @@
-import React from 'react'
-
 const DoctorDashboard = () => {
-	return (
-		<div className='text-3xl'>
-			This is the doctor dashboard.
-		</div>
-	)
-}
+  return (
+    <div className="p-8">
+      <h1 className="text-3xl font-bold">Doctor Dashboard</h1>
+      <p>Manage patient vaccination records</p>
+    </div>
+  );
+};
 
-export default DoctorDashboard
-
+export default DoctorDashboard;
