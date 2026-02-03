@@ -4,8 +4,6 @@ import Login from "../pages/Login";
 import Register from "../pages/Register";
 import PatientDashboard from "../pages/PatientDashboard";
 import DoctorDashboard from "../pages/DoctorDashboard";
-import VaccinationRecord from "../pages/VaccinationRecord";
-import QRcode from "../pages/QRcode";
 
 const AppRoutes = () => {
   return (
@@ -13,10 +11,8 @@ const AppRoutes = () => {
       <Route path="/" element={<Home />} />
       <Route path="/login" element={<Login />} />
       <Route path="/register" element={<Register />} />
-      <Route path="/patient" element={<PatientDashboard />} />
-      <Route path="/doctor" element={<DoctorDashboard />} />
-      <Route path="/records" element={<VaccinationRecord />} />
-      <Route path="/qrcode" element={<QRcode />} />
+      <Route path="/patient-dashboard" element={<PatientDashboard />} />
+      <Route path="/doctor-dashboard" element={<DoctorDashboard />} />
     </Routes>
   );
 };

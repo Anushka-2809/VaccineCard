@@ -1,12 +1,9 @@
-import React from 'react'
-
 const Footer = () => {
-	return (
-		<footer className='text-sm text-center py-4'>
-			© {new Date().getFullYear()} VaccineCard
-		</footer>
-	)
-}
+  return (
+    <footer className="text-center p-4 mt-10 text-gray-500">
+      © 2026 VaccineCard
+    </footer>
+  );
+};
 
-export default Footer
-
+export default Footer;
