@@ -23,12 +23,12 @@ function Register() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-r from-pink-100 to-yellow-100">
+    <div className="min-h-screen flex items-center justify-center bg-gradient-to-r from-blue-100 to-yellow-100">
       <form
         onSubmit={handleRegister}
         className="bg-white p-8 rounded-xl shadow-lg w-96"
       >
-        <h2 className="text-2xl font-bold text-center text-pink-600 mb-5">
+        <h2 className="text-2xl font-bold text-center text-blue-600 mb-5">
           Register
         </h2>
 
@@ -67,7 +67,7 @@ function Register() {
           <option value="doctor">Doctor</option>
         </select>
 
-        <button className="w-full bg-pink-600 text-white py-2 rounded hover:bg-pink-700">
+        <button className="w-full bg-blue-600 text-white py-2 rounded hover:bg-pink-700">
           Create Account
         </button>
       </form>
