@@ -13,8 +13,8 @@ function Login() {
     if (user && user.email === email && user.password === password) {
       localStorage.setItem("loggedInUser", JSON.stringify(user));
 
-      if (user.role === "doctor") navigate("/doctor");
-      else navigate("/patient");
+      if (user.role === "doctor") navigate("/doctor-dashboard");
+      else navigate("/patient-dashboard");
     } else {
       alert("Invalid email or password");
     }
@@ -57,7 +57,7 @@ function Login() {
           Forgot password?
         </p>
 
-        <button className="w-full bg-blue-600 text-white py-2 rounded hover:bg-pink-700">
+        <button className="w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700">
           Login
         </button>
       </form>

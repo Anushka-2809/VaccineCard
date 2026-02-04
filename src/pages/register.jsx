@@ -67,7 +67,7 @@ function Register() {
           <option value="doctor">Doctor</option>
         </select>
 
-        <button className="w-full bg-blue-600 text-white py-2 rounded hover:bg-pink-700">
+        <button className="w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700">
           Create Account
         </button>
       </form>

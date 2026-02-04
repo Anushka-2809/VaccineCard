@@ -15,10 +15,10 @@ function Profile() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-r from-indigo-100 via-pink-100 to-yellow-100">
+    <div className="min-h-screen flex items-center justify-center bg-gradient-to-r from-indigo-100 via-blue-100 to-yellow-100">
       <div className="bg-white shadow-xl rounded-2xl p-8 w-96 text-center">
         
-        <div className="w-24 h-24 mx-auto rounded-full bg-pink-500 text-white flex items-center justify-center text-3xl font-bold mb-4">
+        <div className="w-24 h-24 mx-auto rounded-full bg-blue-500 text-white flex items-center justify-center text-3xl font-bold mb-4">
           {user.name.charAt(0)}
         </div>
 
@@ -28,7 +28,7 @@ function Profile() {
 
         <p className="text-gray-500 mb-4">{user.email}</p>
 
-        <span className="inline-block px-4 py-1 mb-6 rounded-full bg-pink-100 text-pink-600 font-semibold">
+        <span className="inline-block px-4 py-1 mb-6 rounded-full bg-blue-100 text-blue-600 font-semibold">
           {user.role.toUpperCase()}
         </span>
 
