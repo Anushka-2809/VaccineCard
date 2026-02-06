@@ -1,80 +1,147 @@
-import { useNavigate } from "react-router-dom";
+import { useState, useEffect } from "react";
 
 const PatientDashboard = () => {
-  const navigate = useNavigate();
-  const user = JSON.parse(localStorage.getItem("loggedInUser"));
+  const [patients, setPatients] = useState([]);
+  const [form, setForm] = useState({
+    name: "",
+    age: "",
+    previousDose: "",
+    upcomingDose: "",
+    missedDose: "",
+    prescription: null,
+  });
+
+  // Load saved patients
+  useEffect(() => {
+    const saved = JSON.parse(localStorage.getItem("patients")) || [];
+    setPatients(saved);
+  }, []);
+
+  const handleChange = (e) => {
+    const { name, value, files } = e.target;
+    setForm({
+      ...form,
+      [name]: files ? files[0] : value,
+    });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    const newPatient = {
+      ...form,
+      id: Date.now(),
+      prescriptionName: form.prescription?.name || "Not uploaded",
+    };
+
+    const updatedPatients = [...patients, newPatient];
+    setPatients(updatedPatients);
+    localStorage.setItem("patients", JSON.stringify(updatedPatients));
+
+    setForm({
+      name: "",
+      age: "",
+      previousDose: "",
+      upcomingDose: "",
+      missedDose: "",
+      prescription: null,
+    });
+  };
 
   return (
-    <div className="min-h-screen bg-gray-50 flex py-20 justify-center">
-      <div className="max-w-7xl w-full px-8">
+    <div className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-br from-blue-50 to-blue-50 p-6">
+      
+      <h1 className="text-4xl font-bold text-blue-600 mb-6">
+        Patient Dashboard
+      </h1>
 
-        {/* Header */}
-        <div className="mb-12 text-center md:text-left">
-          <h1 className="text-4xl font-extrabold text-blue-600 mb-2">
-            Welcome, {user?.name || "Patient"}
-          </h1>
-          <p className="text-lg text-gray-600">
-            Manage and view your vaccination records securely
-          </p>
-        </div>
+      {/* FORM CARD */}
+      <form
+        onSubmit={handleSubmit}
+        className="bg-white rounded-2xl shadow-xl p-6 w-full max-w-lg mb-10"
+      >
+        <h2 className="text-xl font-semibold text-gray-700 mb-4">
+          Add Patient Details
+        </h2>
 
-        {/* Dashboard Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <input
+          name="name"
+          value={form.name}
+          onChange={handleChange}
+          placeholder="Patient Name"
+          className="w-full mb-3 p-3 border rounded-lg"
+          required
+        />
 
-          {/* Vaccination Records */}
-          <div className="bg-white p-6 rounded-2xl shadow hover:shadow-lg transition">
-            <h3 className="text-xl font-semibold text-gray-800 mb-2">
-              My Vaccinations
-            </h3>
-            <p className="text-gray-600 mb-4">
-              View your vaccination history and certificates.
-            </p>
-            <button className="text-blue-600 font-medium hover:underline">
-              View Records →
-            </button>
-          </div>
+        <input
+          name="age"
+          value={form.age}
+          onChange={handleChange}
+          placeholder="Age"
+          type="number"
+          className="w-full mb-3 p-3 border rounded-lg"
+          required
+        />
 
-          {/* Verification */}
-          <div className="bg-white p-6 rounded-2xl shadow hover:shadow-lg transition">
-            <h3 className="text-xl font-semibold text-gray-800 mb-2">
-              Verification Status
-            </h3>
-            <p className="text-gray-600 mb-4">
-              Check verification status of your vaccines.
-            </p>
-            <button className="text-blue-600 font-medium hover:underline">
-              Check Status →
-            </button>
-          </div>
+        <input
+          name="previousDose"
+          value={form.previousDose}
+          onChange={handleChange}
+          placeholder="Previous Dose"
+          className="w-full mb-3 p-3 border rounded-lg"
+        />
 
-          {/* Profile */}
-          <div className="bg-white p-6 rounded-2xl shadow hover:shadow-lg transition">
-            <h3 className="text-xl font-semibold text-gray-800 mb-2">
-              My Profile
-            </h3>
-            <p className="text-gray-600 mb-4">
-              Update personal details and security settings.
-            </p>
-            <button className="text-blue-600 font-medium hover:underline">
-              Edit Profile →
-            </button>
-          </div>
+        <input
+          name="upcomingDose"
+          value={form.upcomingDose}
+          onChange={handleChange}
+          placeholder="Upcoming Dose"
+          className="w-full mb-3 p-3 border rounded-lg"
+        />
 
-        </div>
+        <input
+          name="missedDose"
+          value={form.missedDose}
+          onChange={handleChange}
+          placeholder="Missed Dose"
+          className="w-full mb-3 p-3 border rounded-lg"
+        />
 
-        {/* Logout */}
-        <div className="mt-14 text-center md:text-left">
-          <button
-            onClick={() => {
-              localStorage.removeItem("loggedInUser");
-              navigate("/login");
-            }}
-            className="inline-block bg-red-500 text-white px-6 py-2.5 rounded-lg font-medium hover:bg-red-600 transition"
+        <input
+          type="file"
+          name="prescription"
+          onChange={handleChange}
+          accept=".pdf,image/*"
+          className="w-full mb-4"
+        />
+
+        <button
+          type="submit"
+          className="w-full bg-blue-500 text-white py-3 rounded-xl hover:bg-blue-600 transition"
+        >
+          Save Patient
+        </button>
+      </form>
+
+      {/* PATIENT LIST */}
+      <div className="w-full max-w-4xl grid gap-6 md:grid-cols-2">
+        {patients.map((p) => (
+          <div
+            key={p.id}
+            className="bg-white rounded-2xl shadow-lg p-5"
           >
-            Logout
-          </button>
-        </div>
-
+            <h3 className="text-xl font-bold text-blue-600 mb-2">
+              {p.name}
+            </h3>
+            <p><b>Age:</b> {p.age}</p>
+            <p><b>Previous Dose:</b> {p.previousDose || "—"}</p>
+            <p><b>Upcoming Dose:</b> {p.upcomingDose || "—"}</p>
+            <p><b>Missed Dose:</b> {p.missedDose || "—"}</p>
+            <p className="text-sm text-gray-500 mt-2">
+              Prescription: {p.prescriptionName}
+            </p>
+          </div>
+        ))}
       </div>
     </div>
   );
