@@ -5,7 +5,10 @@ const PatientDashboard = () => {
   const [form, setForm] = useState({
     name: "",
     age: "",
-    
+    previousDose: "",
+    upcomingDose: "",
+    missedDose: "",
+    prescription: "",
   });
 
   // Load saved patients
