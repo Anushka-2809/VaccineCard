@@ -1,57 +1,83 @@
-import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
-function PatientDashboard() {
+const PatientDashboard = () => {
+  const navigate = useNavigate();
   const user = JSON.parse(localStorage.getItem("loggedInUser"));
-  const [prescription, setPrescription] = useState(null);
-
-  useEffect(() => {
-    const saved = JSON.parse(localStorage.getItem("prescription"));
-    if (saved) setPrescription(saved);
-  }, []);
-
-  const handleUpload = (e) => {
-    const file = e.target.files[0];
-    if (!file) return;
-
-    const data = {
-      patientName: user.name,
-      fileName: file.name,
-      uploadedAt: new Date().toLocaleDateString(),
-    };
-
-    localStorage.setItem("prescription", JSON.stringify(data));
-    setPrescription(data);
-  };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-100 to-green-100">
-      <div className="bg-white rounded-2xl shadow-xl p-8 w-full max-w-md">
+    <div className="min-h-screen bg-gray-50 flex py-20 justify-center">
+      <div className="max-w-7xl w-full px-8">
 
-        <h1 className="text-3xl font-bold text-center text-green-600 mb-6">
-          Patient Dashboard
-        </h1>
+        {/* Header */}
+        <div className="mb-12 text-center md:text-left">
+          <h1 className="text-4xl font-extrabold text-blue-600 mb-2">
+            Welcome, {user?.name || "Patient"}
+          </h1>
+          <p className="text-lg text-gray-600">
+            Manage and view your vaccination records securely
+          </p>
+        </div>
 
-        <p className="text-center mb-4 text-gray-600">
-          Upload your prescription to avoid manual data entry
-        </p>
+        {/* Dashboard Cards */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
 
-        <input
-          type="file"
-          accept=".pdf,.jpg,.png"
-          onChange={handleUpload}
-          className="w-full mb-4"
-        />
-
-        {prescription && (
-          <div className="bg-green-50 p-4 rounded-lg text-sm">
-            <p><b>Uploaded File:</b> {prescription.fileName}</p>
-            <p><b>Date:</b> {prescription.uploadedAt}</p>
+          {/* Vaccination Records */}
+          <div className="bg-white p-6 rounded-2xl shadow hover:shadow-lg transition">
+            <h3 className="text-xl font-semibold text-gray-800 mb-2">
+              My Vaccinations
+            </h3>
+            <p className="text-gray-600 mb-4">
+              View your vaccination history and certificates.
+            </p>
+            <button className="text-blue-600 font-medium hover:underline">
+              View Records →
+            </button>
           </div>
-        )}
+
+          {/* Verification */}
+          <div className="bg-white p-6 rounded-2xl shadow hover:shadow-lg transition">
+            <h3 className="text-xl font-semibold text-gray-800 mb-2">
+              Verification Status
+            </h3>
+            <p className="text-gray-600 mb-4">
+              Check verification status of your vaccines.
+            </p>
+            <button className="text-blue-600 font-medium hover:underline">
+              Check Status →
+            </button>
+          </div>
+
+          {/* Profile */}
+          <div className="bg-white p-6 rounded-2xl shadow hover:shadow-lg transition">
+            <h3 className="text-xl font-semibold text-gray-800 mb-2">
+              My Profile
+            </h3>
+            <p className="text-gray-600 mb-4">
+              Update personal details and security settings.
+            </p>
+            <button className="text-blue-600 font-medium hover:underline">
+              Edit Profile →
+            </button>
+          </div>
+
+        </div>
+
+        {/* Logout */}
+        <div className="mt-14 text-center md:text-left">
+          <button
+            onClick={() => {
+              localStorage.removeItem("loggedInUser");
+              navigate("/login");
+            }}
+            className="inline-block bg-red-500 text-white px-6 py-2.5 rounded-lg font-medium hover:bg-red-600 transition"
+          >
+            Logout
+          </button>
+        </div>
 
       </div>
     </div>
   );
-}
+};
 
 export default PatientDashboard;
