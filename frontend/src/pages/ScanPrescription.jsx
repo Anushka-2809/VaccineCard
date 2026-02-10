@@ -4,10 +4,10 @@ export default function ScanPrescription() {
       <h2>Prescription Review</h2>
 
       <img
-        src="/sample-prescription.png"
-        alt="Prescription"
-        className="prescription-img"
-      />
+  src="/prescription.png"
+  alt="Prescription"
+  className="prescription-img"
+/>
 
       <p>Prescription uploaded by patient.</p>
 
