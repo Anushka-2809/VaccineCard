@@ -5,6 +5,8 @@ import Register from "../pages/Register";
 import PatientDashboard from "../pages/PatientDashboard";
 import DoctorDashboard from "../pages/DoctorDashboard";
 import Contact from "../pages/Contact";
+import ScanPrescription from "../pages/ScanPrescription";
+
 
 import About from "../pages/About";
 
