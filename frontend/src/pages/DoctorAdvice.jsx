@@ -22,7 +22,7 @@ export default function DoctorAdvice() {
       <textarea
         placeholder="Enter advice for the patient..."
         value={advice}
-        onChange={(e) => stAdvice(e.target.value)}
+        onChange={(e) => setAdvice(e.target.value)}
         rows={5}
       />
 
