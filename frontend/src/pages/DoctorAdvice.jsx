@@ -16,7 +16,7 @@ export default function DoctorAdvice() {
   };
 
   return (
-    <div className="card">
+    <div className="car">
       <h2>Doctor’s Advice</h2>
 
       <textarea
