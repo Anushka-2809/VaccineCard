@@ -96,4 +96,4 @@ const DoctorDashboard = () => {
   );
 };
 
-export default DoctorDashboards;
+export default DoctorDashboard;
