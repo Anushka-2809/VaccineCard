@@ -45,7 +45,7 @@ const DoctorDashboard = () => {
 
               <input
                 className="border rounded-lg px-4 py-2 focus:ring-2 focus:ring-blue-400 outline-none"
-                placeholder="Doses Number (1 / 2 / Booster)"
+                placeholder="Dose Number (1 / 2 / Booster)"
               />
 
               <input
